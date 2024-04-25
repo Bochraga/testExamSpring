@@ -8,6 +8,7 @@ import tn.esprit.examrevibochra.Entities.Transaction;
 import java.util.List;
 
 public interface IServices {
+//    void retrive();
     Bank addBank(Bank bank);
 
     Compte ajouterCompteEtAffecterAAgence(Compte compte, String agenceBank);

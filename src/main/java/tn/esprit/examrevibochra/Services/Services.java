@@ -2,6 +2,7 @@ package tn.esprit.examrevibochra.Services;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,19 @@ import java.time.LocalDate;
 import java.util.List;
 @EnableScheduling
 @Service
+@Slf4j
 @RequiredArgsConstructor //definit khater sta3mlna final snn naamlo allargs
 public class Services implements IServices {
     public final IBankRepository bankRepository;
     public final ICompteRepository compteRepository;
     public final ITransactionRepository transactionRepository;
 
+//@Scheduled(cron= "* */15 * * * *")
+//    @Override
+//    public void retrive() {
+//    log.info("bonjour");
+//
+//    }
 
     @Override
     public Bank addBank(Bank bank) {
@@ -110,7 +118,8 @@ public class Services implements IServices {
         LocalDate today = LocalDate.now();
         List<Transaction> transactions = transactionRepository.findTransactionByDateTransaction(today);
         for (Transaction transaction : transactions) {
-            System.out.println(transaction);
+            //System.out.println(transaction);
+            log.info(transaction.toString());
         }
     }
     @Override

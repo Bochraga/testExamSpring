@@ -19,6 +19,7 @@ public class Bank implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idBank;
     String nom;
+    @Column(unique = true)
     String agence;
     String adresse;
     @OneToMany
